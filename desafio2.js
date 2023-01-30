@@ -43,15 +43,25 @@ class ProductManager{
 
 
         getProductById= async(id)=>{
-            let res3 = await this.readProducts()
-            let filter = res3.find(product=>product.id===id)
+            let res3 = await this.readProducts();
 
-            console.log(filter);
+            if (!res3.find(product=>product.id===id)){
+                console.log("Producto no encontrado")
+            }else{
+
+            console.log(res3.find(product=>product.id===id));
 
 
-            
-        }
+        } 
+    }
 
+
+    deleteProductByID= async (id)=>{
+
+        let res3 = await this.readProducts();
+        let productFilter = res3.filter(products=> products.id !=id);
+        console.log(productFilter);
+    }
 }
 
 
@@ -64,4 +74,6 @@ const productos = new ProductManager
 
 // productos.getProducts()
 
-productos.getProductById(1);
+// productos.getProductById(1);
+
+productos.deleteProductByID(2);
