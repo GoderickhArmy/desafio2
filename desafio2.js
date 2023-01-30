@@ -52,7 +52,7 @@ class ProductManager{
             console.log(res3.find(product=>product.id===id));
 
 
-        } 
+        }
     }
 
 
@@ -62,7 +62,17 @@ class ProductManager{
         let productFilter = res3.filter(products=> products.id !=id);
         await fs.writeFile(this.patch, JSON.stringify(productFilter));
         console.log("Producto eliminado");
+    };
+
+
+    updateProducts= async ({id, ...producto}) => {
+        await this.deleteProductByID(id);
+        let productOld = await this.readProducts()
+        let productsModif = [{id, ...producto}, ...productOld];
     }
+
+
+
 }
 
 
@@ -77,4 +87,16 @@ const productos = new ProductManager
 
 // productos.getProductById(1);
 
-productos.deleteProductByID(2);
+// productos.deleteProductByID(2);
+
+productos.updateProducts({
+
+    title:"titulo3",
+    descripcion:"descripcion3",
+    precio: 4000,
+    imagen: "imagen3",
+    codigo: "A225d",
+    stock:5,
+    id:3
+
+})
