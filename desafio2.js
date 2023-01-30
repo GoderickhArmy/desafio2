@@ -68,7 +68,7 @@ class ProductManager{
     updateProducts= async ({id, ...producto}) => {
         await this.deleteProductByID(id);
         let productOld = await this.readProducts()
-        let productsModif = [{id, ...producto}, ...productOld];
+        let productsModif = [{...producto, id}, ...productOld];
         await fs.writeFile(this.patch, JSON.stringify(productsModif));
 
     }
