@@ -29,11 +29,16 @@ class ProductManager{
         await fs.writeFile(this.patch, JSON.stringify(this.products));
     }
 
+    readProducts = async()=>{
+        let res = await fs.readFile(this.patch, "utf-8")
+        return JSON.parse(res);
+    }
+
 
         getProducts= async() =>{
-
-        await fs.readFile(this.patch, "utf-8")
+            return await this.readProducts();
         }
+
 
 
         getProductById= async(id)=>{
