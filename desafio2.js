@@ -69,6 +69,8 @@ class ProductManager{
         await this.deleteProductByID(id);
         let productOld = await this.readProducts()
         let productsModif = [{id, ...producto}, ...productOld];
+        await fs.writeFile(this.patch, JSON.stringify(productsModif));
+
     }
 
 
