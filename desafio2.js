@@ -36,7 +36,8 @@ class ProductManager{
 
 
         getProducts= async() =>{
-            return await this.readProducts();
+            let res2 = await this.readProducts()
+            return console.log(res2);
         }
 
 
