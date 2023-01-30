@@ -43,6 +43,11 @@ class ProductManager{
 
 
         getProductById= async(id)=>{
+            let res3 = await this.readProducts()
+            let filter = res3.find(product=>product.id===id)
+
+            console.log(filter);
+
 
             
         }
@@ -57,4 +62,6 @@ const productos = new ProductManager
 // productos.addProduct("titulo3","descripcion3", "3000", "imagen3","A225d", 5)
 
 
-productos.getProducts()
+// productos.getProducts()
+
+productos.getProductById(1);
