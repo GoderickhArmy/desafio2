@@ -60,7 +60,8 @@ class ProductManager{
 
         let res3 = await this.readProducts();
         let productFilter = res3.filter(products=> products.id !=id);
-        console.log(productFilter);
+        await fs.writeFile(this.patch, JSON.stringify(productFilter));
+        console.log("Producto eliminado");
     }
 }
 
