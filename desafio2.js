@@ -1,4 +1,4 @@
-import {promises as fs} from "fs"
+const fs = require('fs')
 
 class ProductManager{
     constructor(){
@@ -26,11 +26,11 @@ class ProductManager{
 
     this.products.push(newProduct);
 
-        await fs.writeFile(this.patch, JSON.stringify(this.products));
+        await fs.writeFileSync(this.patch, JSON.stringify(this.products));
     }
 
     readProducts = async()=>{
-        let res = await fs.readFile(this.patch, "utf-8")
+        let res = await fs.readFileSync(this.patch, "utf-8")
         return JSON.parse(res);
     }
 
@@ -60,7 +60,7 @@ class ProductManager{
 
         let res3 = await this.readProducts();
         let productFilter = res3.filter(products=> products.id !=id);
-        await fs.writeFile(this.patch, JSON.stringify(productFilter));
+        await fs.writeFileSync(this.patch, JSON.stringify(productFilter));
         console.log("Producto eliminado");
     };
 
@@ -69,7 +69,7 @@ class ProductManager{
         await this.deleteProductByID(id);
         let productOld = await this.readProducts()
         let productsModif = [{...producto, id}, ...productOld];
-        await fs.writeFile(this.patch, JSON.stringify(productsModif));
+        await fs.writeFileSync(this.patch, JSON.stringify(productsModif));
 
     }
 
