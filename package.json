@@ -1,3 +1,28 @@
 {
-    "type": "module"
+  "type": "module",
+  "name": "desafio2",
+  "version": "1.0.0",
+  "main": "desafio2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GoderickhArmy/desafio2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GoderickhArmy/desafio2/issues"
+  },
+  "homepage": "https://github.com/GoderickhArmy/desafio2#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
 }
